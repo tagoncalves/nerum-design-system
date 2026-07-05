@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(ts|tsx|mdx)"],
@@ -13,6 +14,12 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: "react-docgen-typescript",
   },
+  viteFinal: async (config) =>
+    mergeConfig(config, {
+      build: {
+        chunkSizeWarningLimit: 1200,
+      },
+    }),
 };
 
 export default config;
