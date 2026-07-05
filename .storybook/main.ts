@@ -15,11 +15,23 @@ const config: StorybookConfig = {
     reactDocgen: "react-docgen-typescript",
   },
   viteFinal: async (config) =>
-    mergeConfig(config, {
+    mergeConfig(
+      {
+        ...config,
+        plugins: config.plugins?.filter((plugin) => {
+          if (!plugin || Array.isArray(plugin)) {
+            return true;
+          }
+
+          return plugin.name !== "vite:dts";
+        }),
+      },
+      {
       build: {
         chunkSizeWarningLimit: 1200,
       },
-    }),
+      }
+    ),
 };
 
 export default config;
