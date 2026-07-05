@@ -1,0 +1,67 @@
+{
+  "name": "@nerum/design-system",
+  "version": "0.1.0",
+  "description": "Nerum design system package for React products.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/nerum-design-system.cjs",
+  "module": "./dist/nerum-design-system.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/nerum-design-system.js",
+      "require": "./dist/nerum-design-system.cjs"
+    },
+    "./styles.css": "./dist/nerum-design-system.css"
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:storybook": "storybook build",
+    "dev": "storybook dev -p 6006",
+    "doctor": "npm run typecheck && npm run lint && npm run build",
+    "lint": "eslint .",
+    "storybook": "storybook dev -p 6006",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@storybook/addon-essentials": "8.6.18",
+    "@storybook/addon-interactions": "8.6.18",
+    "@storybook/react-vite": "8.6.18",
+    "@storybook/test": "8.6.18",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-storybook": "^0.11.1",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-docgen-typescript": "^2.2.2",
+    "react-dom": "^18.3.1",
+    "storybook": "8.6.18",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2",
+    "vite": "^6.0.5",
+    "vite-plugin-dts": "^4.4.0"
+  }
+}
